@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="/start-page"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-margin-top">
+  <div  *ngIf="isDisabled">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+    <div class="ion-padding">
+      <ion-button  color="dark" expand="block" type="submit" class="ion-no-margin" (click)="create()">Create account</ion-button>
+    </div>
+    </ion-list>
+  </div>
+  
+<div *ngIf="!isDisabled">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-margin ion-text-center">New account</ion-card-title>
+      <ion-card-subtitle  class="ion-margin ion-text-center">new account number : {{ this.accountNbr }}</ion-card-subtitle>
+      <ion-card-subtitle  class="ion-margin ion-text-center">balance : {{ this.data.balance}}</ion-card-subtitle>
+      <ion-card-subtitle  class="ion-margin ion-text-center">overdraft : {{ this.data.overdraft}}</ion-card-subtitle>
+      <div class="ion-text-center ion-margin-top">
+        <ion-button  color="dark" (click)="refresh()">make another deposit</ion-button>
+      </div>
+    </ion-card-header>
+</ion-card>  
+</div>
+</ion-content>

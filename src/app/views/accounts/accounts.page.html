@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-title>
+    accounts
+  </ion-title>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button color="dark" defaultHref="/start-page"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-label class="ion-margin-top"><ion-icon name="refresh-outline"></ion-icon></ion-label>
+  <ion-item class="ion-margin" color="danger">
+    <ion-label>accounts</ion-label>
+    <ion-select interface="popover" [(ngModel)]="account" (change)="displayAccount(account)">
+      <ion-select-option *ngFor="let data of response?.accounts" [value]="data">{{ data }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+<div  class="ion-text-center">
+  <ion-button color="dark" (click)="show()">show account</ion-button>
+</div>
+  
+  <ion-card *ngIf="overview" class="ion-margin">
+    <ion-card-header class="ion-text-center">
+      <ion-card-title class="ion-text-center ion-margin">account details</ion-card-title>
+      <ion-card-subtitle class="ion-text-center ion-margin">Balance: {{ overview.balance }}</ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">Overdraft: {{ overview.overdraft }}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+    <div *ngIf="hasError">
+      <h5 class="ion-text-center">password or email is incorrect</h5>
+  </div>
+</ion-content>

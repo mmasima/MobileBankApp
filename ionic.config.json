@@ -1,0 +1,7 @@
+{
+  "name": "MobileBankApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
